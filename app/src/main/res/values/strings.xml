@@ -2,4 +2,9 @@
     <string name="app_name">RestQuest</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="about_hotel">Об отеле</string>
+    <string name="amenities">Удобства</string>
+    <string name="included">Что включено</string>
+    <string name="not_included">Что не включено</string>
+    <string name="essentials">Самое необходимое</string>
+    <string name="to_room_selection">К выбору номера</string>
 </resources>
