@@ -8,6 +8,7 @@
     <color name="grey_text">#828796</color>
     <color name="text_options_hotel">#2C3035</color>
     <color name="grey_frame">#FBFBFC</color>
+    <color name="blue_frame">#1A0D72FF</color>
     <color name="text_separator">#26828796</color>
     <color name="blue_text">#0D72FF</color>
 </resources>

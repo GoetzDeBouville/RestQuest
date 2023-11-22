@@ -7,4 +7,6 @@
     <string name="not_included">Что не включено</string>
     <string name="essentials">Самое необходимое</string>
     <string name="to_room_selection">К выбору номера</string>
+    <string name="more_about_room">Подробнее о номере</string>
+    <string name="choose_room">Выбрать номер</string>
 </resources>

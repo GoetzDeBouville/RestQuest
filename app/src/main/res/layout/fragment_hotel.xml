@@ -87,7 +87,7 @@
                         android:fontFamily="@font/sf_pro_display_bold"
                         android:textColor="@color/yellow"
                         android:textSize="@dimen/text_19sp"
-                        tools:text="5 Превосходно" />
+                        tools:text="[5 Превосходно]" />
                 </LinearLayout>
 
                 <TextView
@@ -101,7 +101,7 @@
                     android:textSize="@dimen/text_22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/ll_rate"
-                    tools:text="Steigenberger Makadi" />
+                    tools:text="[Steigenberger Makadi]" />
 
                 <TextView
                     android:id="@+id/tv_address"
@@ -116,7 +116,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_hotel_name"
-                    tools:text="Madinat Makadi, Safaga Road, Makadi Bay, Египет" />
+                    tools:text="[Madinat Makadi, Safaga Road, Makadi Bay, Египет]" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -147,7 +147,7 @@
                         android:fontFamily="@font/sf_pro_display_semibold"
                         android:textColor="@color/black"
                         android:textSize="@dimen/text_30sp"
-                        tools:text="от 133 951 ₽" />
+                        tools:text="[от 133 951 ₽]" />
 
                     <TextView
                         android:id="@+id/tv_price_condition"
@@ -157,7 +157,7 @@
                         android:fontFamily="@font/sf_pro_display_semibold"
                         android:textColor="@color/grey_text"
                         android:textSize="@dimen/text_16sp"
-                        tools:text="за тур с перелётом" />
+                        tools:text="[за тур с перелётом]" />
                 </LinearLayout>
 
                 <TextView
@@ -194,7 +194,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/recyclerView"
-                    tools:text="Отель VIP-класса с собственными гольф полями. Высокий уровнь сервиса. Рекомендуем для респектабельного отдыха. Отель принимает гостей от 18 лет!" />
+                    tools:text="[Отель VIP-класса с собственными гольф полями. Высокий уровнь сервиса. Рекомендуем для респектабельного отдыха. Отель принимает гостей от 18 лет!]" />
 
 
                 <LinearLayout
