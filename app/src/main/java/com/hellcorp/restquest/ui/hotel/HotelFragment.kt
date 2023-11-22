@@ -13,9 +13,4 @@ class HotelFragment : BindingFragment<FragmentHotelBinding>() {
     ): FragmentHotelBinding {
         return FragmentHotelBinding.inflate(inflater, container, false)
     }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
 }

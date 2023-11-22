@@ -1,9 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingHorizontal="@dimen/dimen_16dp"
     tools:context=".ui.hotel.HotelFragment">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_256dp"
+            android:layout_centerInParent="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@tools:sample/backgrounds/scenic" />
+
+        <me.relex.circleindicator.CircleIndicator3
+            android:id="@+id/indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/dimen_8dp"
+            android:background="@drawable/rounded_rectangle_white"
+            android:paddingHorizontal="@dimen/dimen_8dp"
+            android:paddingVertical="@dimen/dimen_4dp"
+            app:ci_drawable="@drawable/ic_black_circle"
+            app:ci_drawable_unselected="@drawable/ic_grey_circle"
+            app:ci_height="@dimen/dimen_8dp"
+            app:ci_margin="@dimen/dimen_8dp"
+            app:ci_width="@dimen/dimen_8dp"
+            app:layout_constraintBottom_toBottomOf="@id/viewpager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <LinearLayout
+            android:id="@+id/ll_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:background="@drawable/rounded_rectangle_yellow"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/dimen_8dp"
+            android:paddingVertical="@dimen/dimen_4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewpager">
+
+            <ImageView
+                android:id="@+id/iv_star"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_star" />
+
+            <TextView
+                android:id="@+id/tv_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_2dp"
+                android:fontFamily="@font/sf_pro_display_bold"
+                android:textColor="@color/yellow"
+                android:textSize="@dimen/text_19sp"
+                tools:text="5 Превосходно" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_hotel_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_12dp"
+            android:fontFamily="@font/sf_pro_display_medium"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_rate"
+            tools:text="Steigenberger Makadi" />
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:fontFamily="@font/sf_pro_display_medium"
+            android:maxLines="1"
+            android:textColor="@color/blue_text"
+            android:textSize="@dimen/text_14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_hotel_name"
+            tools:text="Madinat Makadi, Safaga Road, Makadi Bay, Египет" />
+
+        <LinearLayout
+            android:id="@+id/ll_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:layout_marginBottom="@dimen/dimen_16dp"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_address">
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_display_semibold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_30sp"
+                tools:text="от 133 951 ₽" />
+
+            <TextView
+                android:id="@+id/tv_price_condition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_8dp"
+                android:fontFamily="@font/sf_pro_display_semibold"
+                android:textColor="@color/grey_text"
+                android:textSize="@dimen/text_16sp"
+                tools:text="за тур с перелётом" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_24dp"
+            android:fontFamily="@font/sf_pro_display_medium"
+            android:text="@string/about_hotel"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_price" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_about"
+            tools:itemCount="4"
+            tools:listitem="@layout/item_about" />
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_12dp"
+            android:fontFamily="@font/sf_pro_display_medium"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recyclerView"
+            tools:text="Отель VIP-класса с собственными гольф полями. Высокий уровнь сервиса. Рекомендуем для респектабельного отдыха. Отель принимает гостей от 18 лет!"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:background="@drawable/rounded_rectangle_grey"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_description"
+            android:padding="@dimen/dimen_16dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="dasdas"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="dasdas"/>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.core.widget.NestedScrollView>
