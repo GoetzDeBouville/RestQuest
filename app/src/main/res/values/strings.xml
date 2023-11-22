@@ -2,6 +2,7 @@
     <string name="app_name">RestQuest</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="about_hotel">Об отеле</string>
+    <string name="hotel">Отель</string>
     <string name="amenities">Удобства</string>
     <string name="included">Что включено</string>
     <string name="not_included">Что не включено</string>
@@ -9,4 +10,29 @@
     <string name="to_room_selection">К выбору номера</string>
     <string name="more_about_room">Подробнее о номере</string>
     <string name="choose_room">Выбрать номер</string>
+    <string name="departure_desc">Вылет из</string>
+    <string name="depart_from">Вылет из</string>
+    <string name="arrive_in">Страна, город</string>
+    <string name="dates">Даты</string>
+    <string name="nights_number">Кол-во ночей</string>
+    <string name="room">Номер</string>
+    <string name="meal">Питание</string>
+    <string name="phone_number">Номер телефона</string>
+    <string name="email">Почта</string>
+    <string name="name">Имя</string>
+    <string name="surname">Фамилия</string>
+    <string name="burthdate">Дата рождения</string>
+    <string name="citizenship">Гражданство</string>
+    <string name="passport_num">Номер загранпаспорта</string>
+    <string name="passport_date_expire">Срок действия загранпаспорта</string>
+    <string name="buers_info">Информация о покупателе</string>
+    <string name="first_person">Первый турист</string>
+    <string name="second_person">Второй турист</string>
+    <string name="add_person">Добавить туриста</string>
+    <string name="secure_info">Эти данные никому не передаются. После оплаты мы вышлем чек на указанный вами номер и почту</string>
+    <string name="tour">Тур</string>
+    <string name="fuel_tax">Топливный сбор</string>
+    <string name="service_fee">Сервисный сбор</string>
+    <string name="summary">К оплате</string>
+
 </resources>

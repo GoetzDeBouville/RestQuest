@@ -92,13 +92,9 @@
 
                 <TextView
                     android:id="@+id/tv_hotel_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/TextHeaderStyle"
                     android:layout_marginStart="@dimen/dimen_16dp"
                     android:layout_marginTop="@dimen/dimen_12dp"
-                    android:fontFamily="@font/sf_pro_display_medium"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/ll_rate"
                     tools:text="[Steigenberger Makadi]" />
@@ -162,14 +158,10 @@
 
                 <TextView
                     android:id="@+id/tv_about"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/TextHeaderStyle"
                     android:layout_marginStart="@dimen/dimen_16dp"
                     android:layout_marginTop="@dimen/dimen_24dp"
-                    android:fontFamily="@font/sf_pro_display_medium"
                     android:text="@string/about_hotel"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/ll_price" />
 

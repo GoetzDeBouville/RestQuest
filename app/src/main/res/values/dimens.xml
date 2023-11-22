@@ -22,4 +22,5 @@
     <dimen name="dimen_256dp">256dp</dimen>
 
     <dimen name="btn_corner_radius">15dp</dimen>
+    <dimen name="btn_add_corner_radius">6dp</dimen>
 </resources>
