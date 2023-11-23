@@ -138,21 +138,13 @@
 
                     <TextView
                         android:id="@+id/tv_price"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/sf_pro_display_semibold"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/text_30sp"
+                        style="@style/BoldTextPriceStyle"
                         tools:text="[от 133 951 ₽]" />
 
                     <TextView
                         android:id="@+id/tv_price_condition"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPriceConditionStyle"
                         android:layout_marginStart="@dimen/dimen_8dp"
-                        android:fontFamily="@font/sf_pro_display_semibold"
-                        android:textColor="@color/grey_text"
-                        android:textSize="@dimen/text_16sp"
                         tools:text="[за тур с перелётом]" />
                 </LinearLayout>
 
@@ -192,8 +184,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/dimen_16dp"
                     android:layout_marginHorizontal="@dimen/dimen_16dp"
+                    android:layout_marginVertical="@dimen/dimen_16dp"
                     android:background="@drawable/rounded_rectangle_grey_r16"
                     android:orientation="vertical"
                     android:padding="@dimen/dimen_16dp"
@@ -409,20 +401,14 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_to_room_selection"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_48dp"
+            style="@style/CVBtnStyle"
             android:layout_marginHorizontal="@dimen/dimen_16dp"
             android:layout_marginBottom="@dimen/dimen_16dp"
-            android:backgroundTint="@color/blue_text"
             app:cardCornerRadius="@dimen/dimen_16dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/sf_pro_display_medium"
-                android:text="@string/to_room_selection"
-                android:textColor="@color/white" />
+                style="@style/CVBtnTextStyle"
+                android:text="@string/to_room_selection" />
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 

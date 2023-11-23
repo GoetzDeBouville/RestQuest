@@ -10,12 +10,10 @@
 
     <TextView
         android:id="@+id/textViewItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/TextPriceConditionStyle"
         android:ellipsize="end"
         android:singleLine="true"
         android:fontFamily="@font/sf_pro_display_medium"
-        android:textColor="@color/grey_text"
         tools:text="[Первая линия]"
         android:textSize="16sp" />
 </LinearLayout>

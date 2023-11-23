@@ -10,6 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:itemCount="2"
-        tools:listitem="@layout/item_room"/>
+        tools:listitem="@layout/item_room" />
 
 </androidx.core.widget.NestedScrollView>
