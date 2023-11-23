@@ -6,31 +6,31 @@
     android:background="@color/white">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/image_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/shape_circle"
         android:importantForAccessibility="no"
         android:padding="@dimen/dimen_24dp"
         android:src="@drawable/img_party_popper"
-        app:layout_constraintBottom_toTopOf="@id/textViewHeadline"
+        app:layout_constraintBottom_toTopOf="@id/tv_head"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
-        android:id="@+id/textViewHeadline"
+        android:id="@+id/tv_head"
         style="@style/TextHeaderStyle"
         android:layout_marginTop="@dimen/dimen_32dp"
         android:text="@string/order_accepted"
-        app:layout_constraintBottom_toTopOf="@id/textViewDescription"
+        app:layout_constraintBottom_toTopOf="@id/tv_description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/image_view" />
 
     <TextView
-        android:id="@+id/textViewDescription"
+        android:id="@+id/tv_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dimen_24dp"
@@ -40,7 +40,7 @@
         app:layout_constraintBottom_toTopOf="@+id/ll_bottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewHeadline" />
+        app:layout_constraintTop_toBottomOf="@id/tv_head" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:layout_width="0dp"

@@ -6,13 +6,13 @@ import com.hellcorp.restquest.domain.hotel.models.HotelDescription
 
 object HotelMapper {
     fun mapDtoToEntity(dto: HotelDto) = Hotel(
-        aboutHotel = dto.aboutTheHotel.let { HotelDescription(it?.description, it?.peculiarities) },
+        aboutHotel = dto.aboutTheHotel.let { HotelDescription(it?.description, it?.peculiarities ?: listOf()) },
         address = dto.address,
         id = dto.id,
         imageList = dto.imageUrls,
         minimalPrice = dto.minimalPrice,
         name = dto.name,
-        currentPrice = dto.priceForIt,
+        priceForIt = dto.priceForIt,
         rating = dto.rating,
         ratingName = dto.ratingName
     )

@@ -40,5 +40,8 @@
     <string name="super_text">Супер!</string>
     <string name="pay_order">Оплатить %s ₽</string>
     <string name="booking">Бронирование</string>
+    <string name="error">Ошибка получения данных</string>
+    <string name="hotel_rating">%1$s %2$s</string>
+    <string name="minimal_price">от %1$s ₽</string>
 
 </resources>
