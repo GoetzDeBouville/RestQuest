@@ -43,4 +43,7 @@
         android:name="com.hellcorp.restquest.ui.success.SuccessFragment"
         android:label="fragment_success"
         tools:layout="@layout/fragment_success" />
+    <action
+        android:id="@+id/action_global_to_hotelFragment"
+        app:destination="@+id/hotelFragment" />
 </navigation>

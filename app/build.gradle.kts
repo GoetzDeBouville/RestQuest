@@ -57,6 +57,9 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.15.1")
     kapt("com.github.bumptech.glide:compiler:4.15.1")
 
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
     implementation("io.insert-koin:koin-android:3.4.0")
 
     implementation("androidx.room:room-runtime:2.6.0")
