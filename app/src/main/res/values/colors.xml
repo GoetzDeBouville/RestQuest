@@ -2,4 +2,15 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="yellow">#FFFFA800</color>
+    <color name="main_background">#F6F6F9</color>
+    <color name="yellow_transparent">#33FFC700</color>
+    <color name="grey_text">#828796</color>
+    <color name="text_options_hotel">#2C3035</color>
+    <color name="grey_frame">#FBFBFC</color>
+    <color name="grey_shape">#FFF6F6F9</color>
+    <color name="blue_frame">#1A0D72FF</color>
+    <color name="text_separator">#26828796</color>
+    <color name="blue_text">#0D72FF</color>
+    <color name="error_color">#EB5757</color>
 </resources>

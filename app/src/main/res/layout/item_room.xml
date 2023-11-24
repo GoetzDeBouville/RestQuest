@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="@dimen/dimen_8dp"
+    android:backgroundTint="@color/white"
+    app:cardCornerRadius="@dimen/dimen_12dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dimen_16dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/ll_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_256dp"
+            android:layout_centerInParent="true"
+            app:cardCornerRadius="@dimen/dimen_16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:background="@tools:sample/backgrounds/scenic" />
+        </androidx.cardview.widget.CardView>
+
+
+        <me.relex.circleindicator.CircleIndicator3
+            android:id="@+id/indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/dimen_8dp"
+            android:background="@drawable/rounded_rectangle_white"
+            android:elevation="@dimen/dimen_4dp"
+            android:paddingHorizontal="@dimen/dimen_8dp"
+            android:paddingVertical="@dimen/dimen_4dp"
+            app:ci_drawable="@drawable/ic_black_circle"
+            app:ci_drawable_unselected="@drawable/ic_grey_circle"
+            app:ci_height="@dimen/dimen_8dp"
+            app:ci_margin="@dimen/dimen_8dp"
+            app:ci_width="@dimen/dimen_8dp"
+            app:layout_constraintBottom_toBottomOf="@id/ll_viewpager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/room_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:fontFamily="@font/sf_pro_display_medium"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_viewpager"
+            tools:text="[Тип номера]" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_16dp"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/room_type"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_about" />
+
+        <LinearLayout
+            android:id="@+id/ll_more_abput_room"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_12dp"
+            android:background="@color/blue_frame"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingVertical="@dimen/dimen_4dp"
+            android:paddingStart="@dimen/dimen_8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_display_medium"
+                android:text="@string/more_about_room"
+                android:textColor="@color/blue_text" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_12dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_arrow_forward_blue" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_16dp"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:layout_marginBottom="@dimen/dimen_16dp"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_more_abput_room">
+
+            <TextView
+                android:id="@+id/tv_price"
+                style="@style/BoldTextPriceStyle"
+                android:layout_gravity="bottom"
+                tools:text="[133 951 ₽]" />
+
+            <TextView
+                android:id="@+id/tv_price_condition"
+                style="@style/TextPriceConditionStyle"
+                android:layout_marginStart="@dimen/dimen_8dp"
+                android:maxLines="1"
+                tools:text="[за 7 ночей с перелётом]" />
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_to_room_selection"
+            style="@style/CVBtnStyle"
+            android:layout_marginHorizontal="@dimen/dimen_16dp"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            app:cardCornerRadius="@dimen/dimen_16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_price">
+
+            <TextView
+                style="@style/CVBtnTextStyle"
+                android:text="@string/choose_room" />
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

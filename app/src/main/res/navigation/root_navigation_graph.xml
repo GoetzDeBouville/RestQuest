@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_navigation_graph"
+    app:startDestination="@id/hotelFragment">
+
+    <fragment
+        android:id="@+id/hotelFragment"
+        android:name="com.hellcorp.restquest.ui.hotel.HotelFragment"
+        android:label="fragment_hotel"
+        tools:layout="@layout/fragment_hotel">
+        <action
+            android:id="@+id/action_hotelFragment_to_roomFragment"
+            app:destination="@id/roomFragment"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookingFragment"
+        android:name="com.hellcorp.restquest.ui.booking.BookingFragment"
+        android:label="fragment_booking"
+        tools:layout="@layout/fragment_booking">
+        <action
+            android:id="@+id/action_bookingFragment_to_successFragment"
+            app:destination="@id/successFragment"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/roomFragment"
+        android:name="com.hellcorp.restquest.ui.room.RoomFragment"
+        android:label="fragment_room"
+        tools:layout="@layout/fragment_room">
+        <action
+            android:id="@+id/action_roomFragment_to_bookingFragment"
+            app:destination="@id/bookingFragment"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="com.hellcorp.restquest.ui.success.SuccessFragment"
+        android:label="fragment_success"
+        tools:layout="@layout/fragment_success" />
+    <action
+        android:id="@+id/action_global_to_hotelFragment"
+        app:destination="@+id/hotelFragment" />
+</navigation>

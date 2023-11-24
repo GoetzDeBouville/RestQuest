@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/grey_frame"
+    android:layout_margin="@dimen/dimen_4dp"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/dimen_8dp"
+    android:paddingVertical="@dimen/dimen_4dp">
+
+    <TextView
+        android:id="@+id/textViewItem"
+        style="@style/TextPriceConditionStyle"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:fontFamily="@font/sf_pro_display_medium"
+        tools:text="[Первая линия]"
+        android:textSize="16sp" />
+</LinearLayout>
