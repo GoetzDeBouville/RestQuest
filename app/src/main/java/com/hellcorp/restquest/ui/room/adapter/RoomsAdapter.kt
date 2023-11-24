@@ -13,7 +13,10 @@ import com.hellcorp.restquest.ui.hotel.adapters.PeculiaritiesAdapter
 import java.text.NumberFormat
 import java.util.Locale
 
-class RoomsAdapter(private val rooms: List<Room>) :
+class RoomsAdapter(
+    private val rooms: List<Room>,
+    private val onClickedRoom: (() -> Unit)? = null
+) :
     RecyclerView.Adapter<RoomsAdapter.RoomViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RoomViewHolder {
@@ -24,6 +27,10 @@ class RoomsAdapter(private val rooms: List<Room>) :
 
     override fun onBindViewHolder(holder: RoomViewHolder, position: Int) {
         holder.bind(rooms[position])
+
+        holder.itemView.setOnClickListener {
+            onClickedRoom?.invoke()
+        }
     }
 
     override fun getItemCount(): Int = rooms.size

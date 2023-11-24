@@ -42,7 +42,9 @@
     <string name="booking">Бронирование</string>
     <string name="error">Ошибка получения данных</string>
     <string name="hotel_rating">%1$s %2$s</string>
+    <string name="dates_start_stop">%1$s - %2$s</string>
     <string name="minimal_price">от %1$s ₽</string>
+    <string name="nights_num">%1$s</string>
     <string name="room_price">%1$s ₽</string>
 
 </resources>

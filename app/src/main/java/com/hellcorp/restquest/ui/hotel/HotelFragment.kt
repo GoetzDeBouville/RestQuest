@@ -13,12 +13,14 @@ import com.hellcorp.restquest.domain.network.models.HotelResponseState
 import com.hellcorp.restquest.ui.hotel.adapters.ImagePagerAdapter
 import com.hellcorp.restquest.ui.hotel.adapters.PeculiaritiesAdapter
 import com.hellcorp.restquest.utils.BindingFragment
+import com.hellcorp.restquest.utils.Tools
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.NumberFormat
 import java.util.Locale
 
 class HotelFragment : BindingFragment<FragmentHotelBinding>() {
     private val viewModel: HotelViewModel by viewModel()
+    private var currentHotel: Hotel? = null
     override fun createBinding(
         inflater: LayoutInflater, container: ViewGroup?
     ): FragmentHotelBinding {
@@ -29,7 +31,12 @@ class HotelFragment : BindingFragment<FragmentHotelBinding>() {
         super.onViewCreated(view, savedInstanceState)
         binding.cvToRoomSelection.setOnClickListener {
             if (viewModel.clickDebounce()) {
-                findNavController().navigate(R.id.action_hotelFragment_to_roomFragment)
+                currentHotel?.let { hotel ->
+                    val bundle = Bundle().apply {
+                        putString(Tools.HOTEL_NAME_KEY, hotel.name)
+                    }
+                    findNavController().navigate(R.id.action_hotelFragment_to_roomFragment, bundle)
+                }
             }
         }
         viewModel.getHotelInfo()
@@ -70,9 +77,12 @@ class HotelFragment : BindingFragment<FragmentHotelBinding>() {
 
     private fun renderState(state: HotelResponseState) {
         when (state) {
-            is HotelResponseState.Content -> showData(state.hotel)
+            is HotelResponseState.Content -> {
+                showData(state.hotel)
+                currentHotel = state.hotel
+            }
             is HotelResponseState.Empty -> showError()
-            HotelResponseState.Loading -> showLoading()
+            is HotelResponseState.Loading -> showLoading()
             else -> showError()
         }
     }

@@ -8,6 +8,7 @@
     tools:context=".ui.booking.BookingFragment">
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nsv_data"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginVertical="@dimen/dimen_8dp"
@@ -191,7 +192,7 @@
                     android:textColor="@color/grey_text"
                     android:textSize="@dimen/text_16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_nights_number" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_nights_number_info" />
 
                 <TextView
                     android:id="@+id/tv_hotel_info"
@@ -214,7 +215,7 @@
                     android:textColor="@color/grey_text"
                     android:textSize="@dimen/text_16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_hotel" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_hotel_info" />
 
                 <TextView
                     android:id="@+id/tv_room_info"
@@ -226,8 +227,7 @@
                     app:layout_constraintStart_toEndOf="@+id/gl_text_separator"
                     app:layout_constraintTop_toTopOf="@+id/tv_room"
                     tools:text="[Стандартный с видом на бассейн или сад]" />
-
-
+                
                 <TextView
                     android:id="@+id/tv_meal"
                     android:layout_width="wrap_content"
@@ -238,7 +238,7 @@
                     android:textColor="@color/grey_text"
                     android:textSize="@dimen/text_16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_room" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_room_info" />
 
                 <TextView
                     android:id="@+id/tv_meal_info"
@@ -683,6 +683,39 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
+    <ImageView
+        android:id="@+id/iv_error"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_marginHorizontal="@dimen/dimen_16dp"
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/img_error"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_error"
+        style="@style/TextHeaderStyle"
+        android:text="@string/error"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_error" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:indeterminateTint="@color/grey_text"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/ll_payment"
         android:layout_width="match_parent"
@@ -702,6 +735,7 @@
             app:cardCornerRadius="@dimen/dimen_16dp">
 
             <TextView
+                android:id="@+id/tv_total_price"
                 style="@style/CVBtnTextStyle"
                 android:text="@string/pay_order" />
         </androidx.cardview.widget.CardView>

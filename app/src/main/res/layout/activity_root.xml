@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.RootActivity">
+    android:background="@color/main_background"
+    tools:context=".ui.root.RootActivity">
 
     <ImageView
         android:id="@+id/iv_arrow_back"
@@ -24,6 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/dimen_16dp"
         android:fontFamily="@font/sf_pro_display_bold"
+        android:maxLines="1"
+        android:maxLength="20"
         android:textColor="@color/black"
         android:textSize="@dimen/text_18sp"
         app:layout_constraintEnd_toEndOf="parent"

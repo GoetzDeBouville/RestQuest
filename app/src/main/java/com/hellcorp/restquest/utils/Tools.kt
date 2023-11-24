@@ -14,6 +14,7 @@ import com.hellcorp.restquest.R
 
 object Tools {
     const val CLICK_DEBOUNCE_DELAY_500_MS = 500L
+    const val HOTEL_NAME_KEY = "hotel_key"
 
     fun isBackgroundColorLight(color: Int): Boolean {
         val red = Color.red(color)
@@ -23,6 +24,18 @@ object Tools {
         return luminance > 160
     }
 
+    fun nightsPlurals(num: Int): String {
+        val lastDigit = num % 10
+        val lastTwoDigits = num % 100
+
+        return when {
+            lastTwoDigits in 11..14 -> "$num ночей"
+            lastDigit == 1 -> "$num ночь"
+            lastDigit in 2..4 -> "$num ночи"
+            else -> "$num ночей"
+        }
+    }
+    
     fun showSnackbar(
         view: View,
         message: String,

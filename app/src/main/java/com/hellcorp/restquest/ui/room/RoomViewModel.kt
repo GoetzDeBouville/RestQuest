@@ -3,20 +3,17 @@ package com.hellcorp.restquest.ui.room
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.hellcorp.restquest.domain.hotel.models.Hotel
-import com.hellcorp.restquest.domain.network.models.HotelResponseState
 import com.hellcorp.restquest.domain.network.models.LoadingStatus
 import com.hellcorp.restquest.domain.network.models.RoomResponseState
 import com.hellcorp.restquest.domain.room.Room
 import com.hellcorp.restquest.domain.room.network.RoomInteractor
+import com.hellcorp.restquest.ui.root.SharedViewModel
 import com.hellcorp.restquest.utils.Tools
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class RoomViewModel(private val interactor: RoomInteractor) : ViewModel() {
+class RoomViewModel(private val interactor: RoomInteractor) : SharedViewModel() {
     private var isClickAllowed = true
     private val _state = MutableLiveData<RoomResponseState>()
     val state: LiveData<RoomResponseState> get() = _state

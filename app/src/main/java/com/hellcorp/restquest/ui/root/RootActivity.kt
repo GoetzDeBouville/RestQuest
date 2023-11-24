@@ -1,11 +1,13 @@
-package com.hellcorp.restquest.ui
+package com.hellcorp.restquest.ui.root
 
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowInsetsController
 import android.view.WindowManager
+import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.NavHostFragment
@@ -15,11 +17,14 @@ import com.hellcorp.restquest.utils.Tools
 
 class RootActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRootBinding
+    private val viewModel: SharedViewModel by viewModels()
+    private var headerText = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRootBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        statusbarManager()
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.container_view) as NavHostFragment
         val navController = navHostFragment.navController
@@ -28,7 +33,7 @@ class RootActivity : AppCompatActivity() {
             with(binding) {
                 when (destination.id) {
                     R.id.hotelFragment -> tvTitle.text = getText(R.string.hotel)
-                    R.id.roomFragment -> tvTitle.text = getText(R.string.room)
+                    R.id.roomFragment -> tvTitle.text = headerText
                     R.id.bookingFragment -> tvTitle.text = getText(R.string.booking)
                     R.id.successFragment -> tvTitle.text = getText(R.string.order_payed)
                 }
@@ -39,10 +44,11 @@ class RootActivity : AppCompatActivity() {
         binding.ivArrowBack.setOnClickListener {
             navController.popBackStack()
         }
-
-        statusbarManager()
+        viewModel.title.observe(this) { title ->
+            headerText = title
+            Log.i("RootActivityMyLog", "headerText = $headerText")
+        }
     }
-
 
     private fun statusbarManager() {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
