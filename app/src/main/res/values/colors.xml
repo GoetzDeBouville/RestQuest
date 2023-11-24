@@ -12,5 +12,5 @@
     <color name="blue_frame">#1A0D72FF</color>
     <color name="text_separator">#26828796</color>
     <color name="blue_text">#0D72FF</color>
-    <color name="error_color">#26EB5757</color>
+    <color name="error_color">#EB5757</color>
 </resources>
