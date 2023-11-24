@@ -227,7 +227,7 @@
                     app:layout_constraintStart_toEndOf="@+id/gl_text_separator"
                     app:layout_constraintTop_toTopOf="@+id/tv_room"
                     tools:text="[Стандартный с видом на бассейн или сад]" />
-                
+
                 <TextView
                     android:id="@+id/tv_meal"
                     android:layout_width="wrap_content"
@@ -283,15 +283,9 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_number"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:fontFamily="@font/sf_pro_display_medium"
+                        style="@style/TextInputEditTextStyle"
                         android:inputType="phone"
-                        android:maxLength="12"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:textCursorDrawable="@null"
-                        android:textSize="@dimen/text_16sp"
+                        android:maxLength="18"
                         app:layout_constraintTop_toBottomOf="@+id/iv_pl_cover" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -315,14 +309,8 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_email"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:fontFamily="@font/sf_pro_display_medium"
+                        style="@style/TextInputEditTextStyle"
                         android:inputType="textEmailAddress"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:textCursorDrawable="@null"
-                        android:textSize="@dimen/text_16sp"
                         app:layout_constraintTop_toBottomOf="@+id/iv_pl_cover" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -367,13 +355,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:fontFamily="@font/sf_pro_display_medium"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:textCursorDrawable="@null"
-                        android:textSize="@dimen/text_16sp"
+                        style="@style/TextInputEditTextStyle"
                         app:layout_constraintTop_toBottomOf="@+id/iv_pl_cover" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -396,18 +378,12 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_surname"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:fontFamily="@font/sf_pro_display_medium"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:textCursorDrawable="@null"
-                        android:textSize="@dimen/text_16sp"
+                        style="@style/TextInputEditTextStyle"
                         app:layout_constraintTop_toBottomOf="@+id/iv_pl_cover" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/burth_date"
+                    android:id="@+id/birth_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dimen_16dp"
@@ -424,15 +400,9 @@
                     app:hintTextColor="@color/blue_text">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_burth_date"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:fontFamily="@font/sf_pro_display_medium"
+                        android:id="@+id/et_birth_date"
+                        style="@style/TextInputEditTextStyle"
                         android:inputType="date"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:textCursorDrawable="@null"
-                        android:textSize="@dimen/text_16sp"
                         app:layout_constraintTop_toBottomOf="@+id/iv_pl_cover" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -456,13 +426,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_citizenship"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:fontFamily="@font/sf_pro_display_medium"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:textCursorDrawable="@null"
-                        android:textSize="@dimen/text_16sp"
+                        style="@style/TextInputEditTextStyle"
                         app:layout_constraintTop_toBottomOf="@+id/iv_pl_cover" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -485,13 +449,9 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_passport"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:fontFamily="@font/sf_pro_display_medium"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:textCursorDrawable="@null"
-                        android:textSize="@dimen/text_16sp"
+                        style="@style/TextInputEditTextStyle"
+                        android:inputType="number"
+                        android:maxLength="10"
                         app:layout_constraintTop_toBottomOf="@+id/iv_pl_cover" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -514,13 +474,8 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_passport_date"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:fontFamily="@font/sf_pro_display_medium"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:textCursorDrawable="@null"
-                        android:textSize="@dimen/text_16sp"
+                        style="@style/TextInputEditTextStyle"
+                        android:inputType="date"
                         app:layout_constraintTop_toBottomOf="@+id/iv_pl_cover" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
@@ -705,16 +660,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_error" />
 
-    <ProgressBar
+    <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/progress_bar"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:indeterminateTint="@color/grey_text"
+        android:layout_width="@dimen/dimen_256dp"
+        android:layout_height="@dimen/dimen_256dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/progress_travel"/>
 
     <LinearLayout
         android:id="@+id/ll_payment"

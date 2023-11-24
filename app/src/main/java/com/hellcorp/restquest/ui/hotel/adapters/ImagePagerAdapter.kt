@@ -19,6 +19,7 @@ class ImagePagerAdapter(private val imageUrls: List<String>) :
                 .load(imageUrl)
                 .centerCrop()
                 .transform(RoundedCorners(itemView.resources.getDimensionPixelSize(R.dimen.dimen_16dp)))
+                .placeholder(R.drawable.ic_placeholder)
                 .into(binding.imageView)
         }
     }

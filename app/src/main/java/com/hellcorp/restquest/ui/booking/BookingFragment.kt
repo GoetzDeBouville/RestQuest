@@ -1,10 +1,16 @@
 package com.hellcorp.restquest.ui.booking
 
 
+import android.app.DatePickerDialog
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.hellcorp.restquest.R
 import com.hellcorp.restquest.databinding.FragmentBookingBinding
@@ -12,8 +18,10 @@ import com.hellcorp.restquest.domain.booking.models.Booking
 import com.hellcorp.restquest.domain.network.models.BookingResponseState
 import com.hellcorp.restquest.utils.BindingFragment
 import com.hellcorp.restquest.utils.Tools
+import com.redmadrobot.inputmask.MaskedTextChangedListener
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.NumberFormat
+import java.util.Calendar
 import java.util.Locale
 
 class BookingFragment : BindingFragment<FragmentBookingBinding>() {
@@ -37,7 +45,7 @@ class BookingFragment : BindingFragment<FragmentBookingBinding>() {
         hotelName = arguments?.getString(Tools.HOTEL_NAME_KEY).toString()
         viewModel.getBookingInfo()
         liveDataObserver()
-
+        typeListeners()
     }
 
     private fun fetchData(booking: Booking) = with(binding) {
@@ -115,6 +123,75 @@ class BookingFragment : BindingFragment<FragmentBookingBinding>() {
             errorVisibility = View.GONE,
             progressBarVisibility = View.VISIBLE
         )
+    }
+
+    private fun typeListeners() = with(binding) {
+        etEmail.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                if (!Patterns.EMAIL_ADDRESS.matcher(s.toString()).matches()) {
+                    emailInput.boxStrokeColor =
+                        ContextCompat.getColor(requireContext(), R.color.error_color)
+                } else {
+                    emailInput.boxStrokeColor =
+                        ContextCompat.getColor(requireContext(), R.color.grey_text)
+                }
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+        })
+
+        MaskedTextChangedListener.installOn(
+            etNumber,
+            "+7 ([000]) [000]-[00]-[00]",
+            object : MaskedTextChangedListener.ValueListener {
+                override fun onTextChanged(
+                    maskFilled: Boolean,
+                    extractedValue: String,
+                    formattedValue: String,
+                    tailPlaceholder: String
+                ) {
+                }
+            }
+        )
+
+        MaskedTextChangedListener.installOn(
+            etPassport,
+            "[00] [0000000]",
+            object : MaskedTextChangedListener.ValueListener {
+                override fun onTextChanged(
+                    maskFilled: Boolean,
+                    extractedValue: String,
+                    formattedValue: String,
+                    tailPlaceholder: String
+                ) {
+                }
+            })
+
+        etBirthDate.isFocusable = false
+        etBirthDate.isClickable = true
+        etBirthDate.setOnClickListener { showDatePickerDialog(etBirthDate) }
+
+        etPassportDate.isFocusable = false
+        etPassportDate.isClickable = true
+        etPassportDate.setOnClickListener { showDatePickerDialog(etPassportDate) }
+    }
+
+
+    private fun showDatePickerDialog(editText: EditText) {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val datePickerDialog = DatePickerDialog(requireContext(), { _, selectedYear, selectedMonth, dayOfMonth ->
+            editText.setText(String.format("%02d.%02d.%04d", dayOfMonth, selectedMonth + 1, selectedYear))
+        }, year, month, day)
+
+        datePickerDialog.show()
     }
 
     private fun updateUi(contentVisibility: Int, errorVisibility: Int, progressBarVisibility: Int) =

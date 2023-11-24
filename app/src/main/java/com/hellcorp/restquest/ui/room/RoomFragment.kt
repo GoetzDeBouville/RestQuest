@@ -1,6 +1,7 @@
 package com.hellcorp.restquest.ui.room
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,6 +32,7 @@ class RoomFragment : BindingFragment<FragmentRoomBinding>() {
         hotelName = arguments?.getString(Tools.HOTEL_NAME_KEY).toString()
         viewModel.updateTitle(hotelName)
         liveDataObserver()
+        Log.i("RoomFragmentMyLog", "hotelName = $hotelName")
 
         viewModel.getRoomList()
     }
@@ -52,10 +54,12 @@ class RoomFragment : BindingFragment<FragmentRoomBinding>() {
 
     private fun showData(roomList: List<Room>) {
         val adapter = RoomsAdapter(roomList) {
-            val bundle = Bundle().apply {
-                putString(Tools.HOTEL_NAME_KEY, hotelName)
+            if (viewModel.clickDebounce()) {
+                val bundle = Bundle().apply {
+                    putString(Tools.HOTEL_NAME_KEY, hotelName)
+                }
+                findNavController().navigate(R.id.action_roomFragment_to_bookingFragment, bundle)
             }
-            findNavController().navigate(R.id.action_roomFragment_to_bookingFragment, bundle)
         }
 
         binding.rvRooms.adapter = adapter

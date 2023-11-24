@@ -27,7 +27,6 @@ class RoomViewModel(private val interactor: RoomInteractor) : SharedViewModel() 
                 isClickAllowed = true
             }
         }
-
         return current
     }
 

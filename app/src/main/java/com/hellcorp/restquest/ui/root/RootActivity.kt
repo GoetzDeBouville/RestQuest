@@ -18,7 +18,6 @@ import com.hellcorp.restquest.utils.Tools
 class RootActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRootBinding
     private val viewModel: SharedViewModel by viewModels()
-    private var headerText = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRootBinding.inflate(layoutInflater)
@@ -33,7 +32,7 @@ class RootActivity : AppCompatActivity() {
             with(binding) {
                 when (destination.id) {
                     R.id.hotelFragment -> tvTitle.text = getText(R.string.hotel)
-                    R.id.roomFragment -> tvTitle.text = headerText
+                    R.id.roomFragment -> {}
                     R.id.bookingFragment -> tvTitle.text = getText(R.string.booking)
                     R.id.successFragment -> tvTitle.text = getText(R.string.order_payed)
                 }
@@ -45,8 +44,8 @@ class RootActivity : AppCompatActivity() {
             navController.popBackStack()
         }
         viewModel.title.observe(this) { title ->
-            headerText = title
-            Log.i("RootActivityMyLog", "headerText = $headerText")
+            updateTitle(title)
+            Log.i("RootActivityMyLog", "title = $title")
         }
     }
 
@@ -60,5 +59,9 @@ class RootActivity : AppCompatActivity() {
             )
             else window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         }
+    }
+
+    private fun updateTitle(title: String) {
+        binding.tvTitle.text = title
     }
 }
