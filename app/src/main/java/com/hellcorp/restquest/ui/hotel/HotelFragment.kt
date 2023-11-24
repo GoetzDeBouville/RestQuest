@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.hellcorp.restquest.R
 import com.hellcorp.restquest.databinding.FragmentHotelBinding
 import com.hellcorp.restquest.domain.hotel.models.Hotel
-import com.hellcorp.restquest.domain.network.models.ResponseState
+import com.hellcorp.restquest.domain.network.models.HotelResponseState
 import com.hellcorp.restquest.ui.hotel.adapters.ImagePagerAdapter
 import com.hellcorp.restquest.ui.hotel.adapters.PeculiaritiesAdapter
 import com.hellcorp.restquest.utils.BindingFragment
@@ -20,8 +20,7 @@ import java.util.Locale
 class HotelFragment : BindingFragment<FragmentHotelBinding>() {
     private val viewModel: HotelViewModel by viewModel()
     override fun createBinding(
-        inflater: LayoutInflater,
-        container: ViewGroup?
+        inflater: LayoutInflater, container: ViewGroup?
     ): FragmentHotelBinding {
         return FragmentHotelBinding.inflate(inflater, container, false)
     }
@@ -35,38 +34,6 @@ class HotelFragment : BindingFragment<FragmentHotelBinding>() {
         }
         viewModel.getHotelInfo()
         liveDataObserver()
-    }
-
-    private fun liveDataObserver() {
-        viewModel.state.observe(viewLifecycleOwner) {
-            renderState(it)
-        }
-    }
-
-    private fun renderState(state: ResponseState) {
-        when (state) {
-            is ResponseState.Content -> showData(state.hotel)
-            is ResponseState.Empty -> showError()
-            ResponseState.Loading -> showLoading()
-            else -> showError()
-        }
-    }
-
-    private fun showError() {
-        updateUi(
-            contentVisibility = View.GONE,
-            errorVisibility = View.VISIBLE,
-            progressBarVisibility = View.GONE
-        )
-    }
-
-    private fun showData(hotel: Hotel) {
-        fetchData(hotel)
-        updateUi(
-            contentVisibility = View.VISIBLE,
-            errorVisibility = View.GONE,
-            progressBarVisibility = View.GONE
-        )
     }
 
     private fun fetchData(hotel: Hotel) = with(binding) {
@@ -95,14 +62,37 @@ class HotelFragment : BindingFragment<FragmentHotelBinding>() {
         }
     }
 
-    private fun updateUi(contentVisibility: Int, errorVisibility: Int, progressBarVisibility: Int) =
-        with(binding) {
-            nsvData.visibility = contentVisibility
-            toRoomSelection.visibility = contentVisibility
-            ivError.visibility = errorVisibility
-            tvError.visibility = errorVisibility
-            progressBar.visibility = progressBarVisibility
+    private fun liveDataObserver() {
+        viewModel.state.observe(viewLifecycleOwner) {
+            renderState(it)
         }
+    }
+
+    private fun renderState(state: HotelResponseState) {
+        when (state) {
+            is HotelResponseState.Content -> showData(state.hotel)
+            is HotelResponseState.Empty -> showError()
+            HotelResponseState.Loading -> showLoading()
+            else -> showError()
+        }
+    }
+
+    private fun showData(hotel: Hotel) {
+        fetchData(hotel)
+        updateUi(
+            contentVisibility = View.VISIBLE,
+            errorVisibility = View.GONE,
+            progressBarVisibility = View.GONE
+        )
+    }
+
+    private fun showError() {
+        updateUi(
+            contentVisibility = View.GONE,
+            errorVisibility = View.VISIBLE,
+            progressBarVisibility = View.GONE
+        )
+    }
 
     private fun showLoading() {
         updateUi(
@@ -111,4 +101,13 @@ class HotelFragment : BindingFragment<FragmentHotelBinding>() {
             progressBarVisibility = View.VISIBLE
         )
     }
+
+    private fun updateUi(contentVisibility: Int, errorVisibility: Int, progressBarVisibility: Int) =
+        with(binding) {
+            nsvData.visibility = contentVisibility
+            toRoomSelection.visibility = contentVisibility
+            ivError.visibility = errorVisibility
+            tvError.visibility = errorVisibility
+            progressBar.visibility = progressBarVisibility
+        }
 }

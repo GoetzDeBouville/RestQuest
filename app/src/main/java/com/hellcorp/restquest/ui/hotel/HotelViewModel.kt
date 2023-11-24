@@ -8,15 +8,15 @@ import androidx.lifecycle.viewModelScope
 import com.hellcorp.restquest.domain.hotel.models.Hotel
 import com.hellcorp.restquest.domain.hotel.network.HotelInteractor
 import com.hellcorp.restquest.domain.network.models.LoadingStatus
-import com.hellcorp.restquest.domain.network.models.ResponseState
+import com.hellcorp.restquest.domain.network.models.HotelResponseState
 import com.hellcorp.restquest.utils.Tools
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class HotelViewModel(private val interactor: HotelInteractor) : ViewModel() {
     private var isClickAllowed = true
-    private val _state = MutableLiveData<ResponseState>()
-    val state: LiveData<ResponseState> get() = _state
+    private val _state = MutableLiveData<HotelResponseState>()
+    val state: LiveData<HotelResponseState> get() = _state
 
     fun clickDebounce(): Boolean {
         val current = isClickAllowed
@@ -31,7 +31,7 @@ class HotelViewModel(private val interactor: HotelInteractor) : ViewModel() {
     }
 
     fun getHotelInfo() {
-        renderState(ResponseState.Loading)
+        renderState(HotelResponseState.Loading)
         viewModelScope.launch {
             try {
                 interactor.getHotelInfo()
@@ -46,13 +46,13 @@ class HotelViewModel(private val interactor: HotelInteractor) : ViewModel() {
 
     private fun processResult(hotel: Hotel?, errorType: LoadingStatus?) {
         when {
-            errorType != null -> renderState(ResponseState.ConnectionError)
-            hotel == null -> renderState(ResponseState.Empty)
-            else -> renderState(ResponseState.Content(hotel))
+            errorType != null -> renderState(HotelResponseState.ConnectionError)
+            hotel == null -> renderState(HotelResponseState.Empty)
+            else -> renderState(HotelResponseState.Content(hotel))
         }
     }
 
-    private fun renderState(state: ResponseState) {
+    private fun renderState(state: HotelResponseState) {
         _state.postValue(state)
     }
 }

@@ -1,7 +1,7 @@
 package com.hellcorp.restquest.di
 
-import com.hellcorp.restquest.data.hotel.network.HotelApiService
-import com.hellcorp.restquest.data.hotel.network.RetrofitNetworkClient
+import com.hellcorp.restquest.data.network.ApiService
+import com.hellcorp.restquest.data.network.RetrofitNetworkClient
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -14,6 +14,6 @@ val networkModule = module {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-    single { get<Retrofit>().create(HotelApiService::class.java) }
+    single { get<Retrofit>().create(ApiService::class.java) }
     singleOf(::RetrofitNetworkClient)
 }

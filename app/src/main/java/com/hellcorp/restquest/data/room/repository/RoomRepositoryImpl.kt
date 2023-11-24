@@ -1,25 +1,28 @@
-package com.hellcorp.restquest.data.hotel.repository
+package com.hellcorp.restquest.data.room.repository
 
-import com.hellcorp.restquest.data.hotel.mapper.HotelMapper
 import com.hellcorp.restquest.data.network.RetrofitNetworkClient
+import com.hellcorp.restquest.data.room.mapper.RoomMapper
 import com.hellcorp.restquest.domain.hotel.models.Hotel
-import com.hellcorp.restquest.domain.hotel.network.HotelRepository
 import com.hellcorp.restquest.domain.network.models.LoadingStatus
 import com.hellcorp.restquest.domain.network.models.Resource
+import com.hellcorp.restquest.domain.room.Room
+import com.hellcorp.restquest.domain.room.network.RoomRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
 import java.io.IOException
 
-
-class HotelRepositoryImpl(private val networkClient: RetrofitNetworkClient) : HotelRepository {
-    override suspend fun getHotelInfo(): Flow<Resource<Hotel>> = flow {
+class RoomRepositoryImpl(private val networkClient: RetrofitNetworkClient) : RoomRepository {
+    private val mapper = RoomMapper()
+    override suspend fun getRoomList(): Flow<Resource<List<Room>>> = flow {
         try {
-            val response = networkClient.getHotelInfo()
+            val response = networkClient.getRoomList()
             if (response.isSuccessful) {
-                response.body()?.let { hotelResponse ->
-                    emit(Resource.Success(HotelMapper.mapDtoToEntity(hotelResponse)))
-                } ?: throw Exception("No data found")
+                response.body()?.let { roomsResponse ->
+                    emit(Resource.Success(roomsResponse.rooms.map {
+                        mapper.mapDtoToEntity(it)
+                    }))
+                }
             } else {
                 emit(Resource.Error(LoadingStatus.SERVER_ERROR))
             }

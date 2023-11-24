@@ -11,7 +11,9 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RoomFragment : BindingFragment<FragmentRoomBinding>() {
     private val viewModel: RoomViewModel by viewModel()
-    private val adapter = RoomsAdapter()
+//    val adapter = RoomsAdapter(myRoomList)
+//    binding.rvRooms.adapter = adapter
+
     override fun createBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
@@ -22,4 +24,5 @@ class RoomFragment : BindingFragment<FragmentRoomBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
     }
+
 }

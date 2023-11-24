@@ -7,15 +7,27 @@
     android:background="@drawable/rounded_r12_rectangle_white"
     android:padding="@dimen/dimen_16dp">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewpager"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/ll_viewpager"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_256dp"
         android:layout_centerInParent="true"
+        app:cardCornerRadius="@dimen/dimen_16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:background="@tools:sample/backgrounds/scenic" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@tools:sample/backgrounds/scenic" />
+    </androidx.cardview.widget.CardView>
+
 
     <me.relex.circleindicator.CircleIndicator3
         android:id="@+id/indicator"
@@ -24,6 +36,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="@dimen/dimen_8dp"
         android:background="@drawable/rounded_rectangle_white"
+        android:elevation="@dimen/dimen_4dp"
         android:paddingHorizontal="@dimen/dimen_8dp"
         android:paddingVertical="@dimen/dimen_4dp"
         app:ci_drawable="@drawable/ic_black_circle"
@@ -31,7 +44,7 @@
         app:ci_height="@dimen/dimen_8dp"
         app:ci_margin="@dimen/dimen_8dp"
         app:ci_width="@dimen/dimen_8dp"
-        app:layout_constraintBottom_toBottomOf="@id/viewpager"
+        app:layout_constraintBottom_toBottomOf="@id/ll_viewpager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -45,7 +58,7 @@
         android:textSize="@dimen/text_22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewpager"
+        app:layout_constraintTop_toBottomOf="@+id/ll_viewpager"
         tools:text="[Тип номера]" />
 
     <androidx.recyclerview.widget.RecyclerView
