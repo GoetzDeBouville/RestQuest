@@ -5,7 +5,7 @@ import com.hellcorp.restquest.domain.hotel.models.Hotel
 import com.hellcorp.restquest.domain.hotel.models.HotelDescription
 
 object HotelMapper {
-    fun mapDtoToEntity(dto: HotelDto) = Hotel(
+    fun map(dto: HotelDto) = Hotel(
         aboutHotel = dto.aboutTheHotel.let { HotelDescription(it?.description, it?.peculiarities ?: listOf()) },
         address = dto.address,
         id = dto.id,
