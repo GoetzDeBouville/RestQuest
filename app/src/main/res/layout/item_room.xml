@@ -117,6 +117,7 @@
         <TextView
             android:id="@+id/tv_price"
             style="@style/BoldTextPriceStyle"
+            android:layout_gravity="bottom"
             tools:text="[133 951 ₽]" />
 
         <TextView
