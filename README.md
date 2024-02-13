@@ -6,9 +6,8 @@
 ### Hotel booking application
 ### Project created for the test task
 An application for booking a hotel, containing screens with detailed information about the hotel, choosing rooms, filling in information about guests, and a screen indicating successful completion of the booking.
-
-
-Stack:
+<br>
+### Stack: 
 - Kotlin
 - MVVM + LiveData
 - DI: Koin
