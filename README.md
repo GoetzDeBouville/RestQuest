@@ -16,4 +16,5 @@ Glide
 lottie
 input-mask-android
 
-![Alt Text](screencast.gif)
+
+<img src="screencast.gif" width="240" height="480">
