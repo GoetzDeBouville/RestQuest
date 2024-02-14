@@ -48,7 +48,7 @@ Screencast:
 </a>
 
 
-### Contact with me  📬
+### Contact me  📬
 
 <p align="left">
 
