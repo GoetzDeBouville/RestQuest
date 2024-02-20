@@ -20,7 +20,7 @@ An application for booking a hotel, containing screens with detailed information
 - input-mask-android (input formater)
 
 
-Screencast:
+## Screencast:
 
 [![](https://img.shields.io/badge/YouTube-0077B5?style=for-the-badge&logo=youtube&logoColor=red)](https://youtu.be/ztorLIqy_I8?si=7g0rGUKLSa1bBcVI)
 
