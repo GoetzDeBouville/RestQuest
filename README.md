@@ -1,7 +1,7 @@
 # RestQuest
 
-![badge-Android](https://img.shields.io/badge/Platform-Android-brightgreen?logo=android)
-[![Kotlin](https://img.shields.io/badge/Kotlin-1.9.0-blue.svg?style=flat&logo=kotlin)](https://kotlinlang.org)
+![badge-Android](https://img.shields.io/badge/Platform-Android-brightgreen?logo=android&style=plastic)
+[![Kotlin](https://img.shields.io/badge/Kotlin-1.9.0-blue.svg?style=plastic&logo=kotlin)](https://kotlinlang.org)
 
 ### Hotel booking application
 ### Project created for the test task
